@@ -1,6 +1,8 @@
 # Hana Cloud FullStack Application with SAP CAP - Fiori 🌐
 
-Welcome to the **Hana Cloud FullStack Application with SAP CAP - Fiori** project. This is a full-stack application where I practiced integrating SAP CAP for backend services with Hana Cloud for database management and a modern UI using SAP Fiori. The application is very simple, it has a Header artifact and an Item artifact.
+Welcome to the **Hana Cloud FullStack Application with SAP CAP - Fiori** project. This is a full-stack application where I practiced integrating SAP CAP for backend services with Hana Cloud for database management and a modern UI using SAP Fiori. 
+
+The application is very simple, it has a header artifact and an item artifact. When you run all the necessary commands, it will show you new folders and files, don't forget to establish a connection with your BTP
 
 ---
 
@@ -15,8 +17,6 @@ The project follows the recommended SAP CAP layout, with the following key folde
 | `srv/`         | Includes service definitions and backend logic implemented with SAP CAP. |
 | `package.json` | Contains project metadata and dependencies. |
 | `README.md`    | This introduction and setup guide. |
-
----
 
 ## Features
 
