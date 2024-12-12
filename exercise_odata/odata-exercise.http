@@ -1,0 +1,48 @@
+####################################################
+# Exercise OData - Bootcamp Globant | SAP - CAP
+# Lucas Gancia | 5/12/2024
+####################################################
+
+# Variable containing the Northwind base URL
+@base_url = https://services.odata.org/northwind/northwind.svc/
+
+### ------------------------------------------------
+# Root request 
+# It results in the different types of data that it stores -> Entities
+GET {{base_url}}
+
+### ------------------------------------------------
+# Metadata
+GET {{base_url}}/$metadata
+
+### ------------------------------------------------
+# Get orders with customer details
+# --> GET {{base_url}}/Customers?$expand=Orders
+GET {{base_url}}/Orders?$expand=Customer
+
+### ------------------------------------------------
+# Get the employees who report to manager "2"
+GET {{base_url}}/Employees?$filter=ReportsTo eq 2
+
+### ------------------------------------------------
+# Get the products that are in stock (inventory)
+GET {{base_url}}/Products?$filter=UnitsInStock gt 0
+
+### ------------------------------------------------
+# Get only the names and codes of products that are NOT in stock (inventory)
+GET {{base_url}}/Products?$filter=UnitsInStock eq 0&$select=ProductID, ProductName, UnitsInStock
+
+### ------------------------------------------------
+# Get the 5 most expensive products
+GET {{base_url}}/Products?$orderby=UnitPrice desc&$top=5&$select=ProductID, ProductName, UnitPrice
+
+### ------------------------------------------------
+# Find the orders that were shipped to "Germany"
+GET {{base_url}}/Orders?$filter=ShipCountry eq 'Germany'
+
+### ------------------------------------------------
+# Get only the names and prices of products in the category "Beverages"
+# GET {{base_url}}/Categories?$filter=CategoryName eq 'Beverages' 
+#   --> sabemos que es el CategoryID = 1.
+#       GET {{base_url}}/Products?$filter=CategoryID eq 1
+GET {{base_url}}/Products?$filter=Category/CategoryName eq 'Beverages'
