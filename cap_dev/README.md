@@ -1,25 +1,42 @@
-# Getting Started
+# Hana Cloud FullStack Application with SAP CAP - Fiori 🌐
 
-Welcome to your new project.
+Welcome to the **Hana Cloud FullStack Application with SAP CAP - Fiori** project. This is a full-stack application where I practiced integrating SAP CAP for backend services with Hana Cloud for database management and a modern UI using SAP Fiori. The application is very simple, it has a Header artifact and an Item artifact.
 
-It contains these folders and files, following our recommended project layout:
+---
 
-File or Folder | Purpose
----------|----------
-`app/` | content for UI frontends goes here
-`db/` | your domain models and data go here
-`srv/` | your service models and code go here
-`package.json` | project metadata and configuration
-`readme.md` | this getting started guide
+## Project Structure
 
+The project follows the recommended SAP CAP layout, with the following key folders and files:
 
-## Next Steps
+| File or Folder | Purpose |
+|----------------|---------|
+| `app/`         | Contains the SAP Fiori-based frontend. |
+| `db/`          | Houses the domain models and Hana Cloud database configurations. |
+| `srv/`         | Includes service definitions and backend logic implemented with SAP CAP. |
+| `package.json` | Contains project metadata and dependencies. |
+| `README.md`    | This introduction and setup guide. |
 
-- Open a new terminal and run `cds watch`
-- (in VS Code simply choose _**Terminal** > Run Task > cds watch_)
-- Start adding content, for example, a [db/schema.cds](db/schema.cds).
+---
+
+## Features
+
+- **Hana Cloud Integration**: Seamless connection to Hana Cloud for efficient data management.
+- **SAP CAP Backend**: Service-driven architecture with SAP Cloud Application Programming model.
+- **SAP Fiori UI**: Intuitive and responsive user interface powered by SAP Fiori.
 
 
 ## Learn More
 
-Learn more at https://cap.cloud.sap/docs/get-started/.
+- [SAP CAP Documentation](https://cap.cloud.sap/docs/)
+- [SAP Fiori Elements](https://experience.sap.com/fiori-design-web/)
+- [Hana Cloud](https://www.sap.com/products/technology-platform/hana.html)
+
+
+## Author
+
+**Lucas Gancia**
+
+Feel free to reach out for questions or collaboration at:
+
+- **Email**: [lucasgancia@example.com](mailto:lucasgancia@example.com)
+- **GitHub**: [github.com/lucasgancia](https://github.com/lucasgancia)
