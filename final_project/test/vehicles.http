@@ -1,0 +1,105 @@
+#########################################################
+# Request Test OData - Bootcamp Globant | SAP - CAP
+# Logistic And Shipping                 | Final Project
+# Lucas Gancia                          | Author
+#########################################################
+
+@base_url = http://localhost:4004
+
+### -----------------------------------------------------
+GET {{base_url}}/drivers/
+
+### -----------------------------------------------------
+GET {{base_url}}/drivers/$metadata
+
+
+### -----------------------------------------------------
+### --> VEHICLES
+###     CREATE - POST
+### -----------------------------------------------------
+POST {{base_url}}/drivers/Vehicles
+Content-Type: application/json
+
+{
+    "plate": "RE-474-TY",
+    "loadCapacity": "1040kg",
+    "isActive": false,
+    "driver_name": "Mariano Partino",
+    "driver_dateOfBirth": "2000-01-04",
+    "driver_seniority": 1
+}
+
+
+### -----------------------------------------------------
+### --> VEHICLES
+###     READ - GET
+### -----------------------------------------------------
+# @name getVehicleID
+GET {{base_url}}/drivers/Vehicles
+
+
+### -----------------------------------------------------
+### --> VEHICLES
+###     UPDATE - PATCH
+### -----------------------------------------------------
+@vehicleID = {{getVehicleID.response.body.$.value[1].plate}} 
+
+PATCH {{base_url}}/drivers/Vehicles('{{vehicleID}}')
+Content-Type: application/json
+
+{
+    "loadCapacity": "1027kg"
+}
+
+
+### -----------------------------------------------------
+### --> VEHICLES
+###     DELETE - DELETE by ID
+### -----------------------------------------------------
+DELETE {{base_url}}/drivers/Vehicles('{{vehicleID}}')
+
+
+### -----------------------------------------------------
+### --> VEHICLES
+###     CUSTOM ACTION
+###         - Add the number of packages that would go 
+###     in the vehicle
+### -----------------------------------------------------
+POST {{base_url}}/logistic/Vehicles/actions/parcel
+Content-Type: application/json
+
+{
+    "idVehicle": "{{vehicleID}}",
+    "quantity": 3
+}
+
+
+### -----------------------------------------------------
+### --> VEHICLES
+###     CUSTOM ACTION
+###         - Cancel the shipment
+### -----------------------------------------------------
+GET {{base_url}}/logistic/Vehicles?$expand=packages
+
+###
+
+POST {{base_url}}/logistic/Vehicles/actions/cancelShipment
+Content-Type: application/json
+
+{
+    "idVehicle": "{{vehicleID}}"
+}
+
+
+### -----------------------------------------------------
+### --> VEHICLES
+###     CUSTOM ACTION
+###         - Check if id bupa exist in driver
+### -----------------------------------------------------
+POST {{base_url}}/drivers/idBupaDriver
+Content-Type: application/json
+
+{
+    "idVehicle": "{{vehicleID}}"
+}
+

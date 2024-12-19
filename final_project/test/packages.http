@@ -1,0 +1,89 @@
+#########################################################
+# Request Test OData - Bootcamp Globant | SAP - CAP
+# Logistic And Shipping                 | Final Project
+# Lucas Gancia                          | Author
+#########################################################
+
+@base_url = http://localhost:4004
+
+### -----------------------------------------------------
+GET {{base_url}}/logistic/
+
+### -----------------------------------------------------
+GET {{base_url}}/logistic/$metadata
+
+
+### -----------------------------------------------------
+### --> PACKAGES
+###     CREATE - POST
+### -----------------------------------------------------
+POST {{base_url}}/logistic/Packages
+Content-Type: application/json
+
+{
+    "weight": 54.1,
+    "dimensions_length": 123.12,
+    "dimensions_height": 90.87,
+    "dimensions_width": 67.45,
+    "receiver_name": "Lucas Gancia",
+    "receiver_cel": "01010202",
+    "receiver_email": "lucas@ejemplo.com",
+    "destination_city": "City Example 4",
+    "destination_street": "Street Example 4",
+    "destination_address": "Street Example 4, 0099",
+    "destination_neighborhood": "Neighborhood Example 4",
+    "taken": false
+}
+
+
+### -----------------------------------------------------
+### --> PACKAGES
+###     READ - GET
+###     - GET {{base_url}}/logistic/Packages?$expand=vehicle
+###     - GET {{base_url}}/logistic/Vehicles?$expand=packages
+### -----------------------------------------------------
+# @name getPackageID
+GET {{base_url}}/logistic/Packages
+
+
+### -----------------------------------------------------
+### --> PACKAGES
+###     UPDATE - PATCH
+### -----------------------------------------------------
+@packageID = {{getPackageID.response.body.$.value[0].ID}} 
+
+PATCH {{base_url}}/logistic/Packages({{packageID}})
+Content-Type: application/json
+
+{
+    "weight": 63.24,
+    "taken": false
+}
+
+
+### -----------------------------------------------------
+### --> PACKAGES
+###     DELETE - DELETE by ID
+### -----------------------------------------------------
+DELETE {{base_url}}/logistic/Packages({{packageID}})
+
+
+### -----------------------------------------------------
+### --> PACKAGES
+###     CUSTOM FUNCTION
+###         - Counts the total number of packages
+### -----------------------------------------------------
+GET {{base_url}}/logistic/packagesQuantity()
+
+
+### -----------------------------------------------------
+### --> PACKAGES
+###     CUSTOM ACTION
+###         - Package Delivered
+### -----------------------------------------------------
+POST {{base_url}}/logistic/Packages/actions/delivered
+Content-Type: application/json
+
+{
+    "idPack": "{{packageID}}"
+}
