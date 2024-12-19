@@ -1,25 +1,66 @@
-# Getting Started
+# Logistic Management App 🚚📦
 
-Welcome to your new project.
+This repository contains a CAP (Cloud Application Programming) service for managing packages, vehicles, and drivers in a logistics operation. The application leverages SAP CAP and integrates with external services to manage and optimize logistics processes.
 
-It contains these folders and files, following our recommended project layout:
+## Overview
 
-File or Folder | Purpose
----------|----------
-`app/` | content for UI frontends goes here
-`db/` | your domain models and data go here
-`srv/` | your service models and code go here
-`package.json` | project metadata and configuration
-`readme.md` | this getting started guide
+This app provides an end-to-end solution to manage logistics operations. It focuses on:
+* Managing packages with dimensions, weight, and destinations.
+* Associating packages with vehicles and drivers.
+* Monitoring and optimizing the logistics process.
+* External integration with SAP Business Partner API for driver information.
+The application is built using SAP CAP, ensuring scalability and compatibility with SAP BTP (Business Technology Platform).
 
+## Features
 
-## Next Steps
+1. CRUD operations for:
+    * Package
+    * Vehicles
+    * Drivers
+2. Validation for:
+    * Package dimensions, weight, and mandatory fields.
+    * Vehicle load capacity.
+3. Associations between:
+    * Vehicles and Packages.
+    * Drivers (via external Business Partner integration).
+4. Actions to optimize logistics (e.g., assign packages to vehicles).
 
-- Open a new terminal and run `cds watch`
-- (in VS Code simply choose _**Terminal** > Run Task > cds watch_)
-- Start adding content, for example, a [db/schema.cds](db/schema.cds).
+## Data Model
+### Entities
 
+`Packages`
 
-## Learn More
+Manages individual packages, including:
+* Weight (mandatory).
+* Dimensions (length, width, height).
+* Receiver information (name, phone, email).
+* Destination (city, street, address).
+Vehicle assignment via associations.
 
-Learn more at https://cap.cloud.sap/docs/get-started/.
+`Vehicles`
+
+Handles information about logistics vehicles, including:
+* Plate (unique key).
+* Load capacity.
+* Driver information (name, seniority, etc.).
+* Packages association.
+
+`Drivers`
+
+Driver data is projected from the SAP Business Partner API.
+
+### Types
+* Dimensions: Includes length, width, and height.
+* Receiver: Contact information for the package receiver.
+* Destination: Details about delivery location.
+
+---
+
+## Author
+
+**Lucas Gancia**
+
+Feel free to reach out for questions or collaboration at:
+
+- **Email**: [lucasgancia@gmail.com](mailto:lucasgancia@gmail.com)
+- **GitHub**: [github.com/lucasgancia](https://github.com/lucasgancia)
