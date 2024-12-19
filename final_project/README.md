@@ -11,6 +11,9 @@ This app provides an end-to-end solution to manage logistics operations. It focu
 * External integration with SAP Business Partner API for driver information.
 The application is built using SAP CAP, ensuring scalability and compatibility with SAP BTP (Business Technology Platform).
 
+### Aplication Routes
+* Link: https://c3ec7230trial-dev-fp-logandshipping-srv.cfapps.us10-001.hana.ondemand.com/
+
 ## Features
 
 1. CRUD operations for:
