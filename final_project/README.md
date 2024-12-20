@@ -13,6 +13,9 @@ The application is built using SAP CAP, ensuring scalability and compatibility w
 
 ### Aplication Routes
 * Link: https://c3ec7230trial-dev-fp-logandshipping-srv.cfapps.us10-001.hana.ondemand.com/
+   * `Client ID`: sb-FP_logAndShipping-c3ec7230trial-dev!t372995
+   * `Client Secret`: fbce7486-1f55-45ca-a83d-c25caf5ae05e$rVtxuXvVga6PzuMc6PjllammDg4esLdCnLjdIrt4B1Y=
+   * `url`: https://c3ec7230trial.authentication.us10.hana.ondemand.com
 
 ## Features
 
