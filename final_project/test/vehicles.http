@@ -21,12 +21,12 @@ POST {{base_url}}/drivers/Vehicles
 Content-Type: application/json
 
 {
-    "plate": "RE-474-TY",
-    "loadCapacity": "1040kg",
-    "isActive": false,
-    "driver_name": "Mariano Partino",
-    "driver_dateOfBirth": "2000-01-04",
-    "driver_seniority": 1
+    "plate": "RPA-474",
+    "loadCapacity": "1010kg",
+    "isActive": true,
+    "driver_name": "Antonio Romano",
+    "driver_dateOfBirth": "1987-04-24",
+    "driver_seniority": 9
 }
 
 
@@ -42,13 +42,13 @@ GET {{base_url}}/drivers/Vehicles
 ### --> VEHICLES
 ###     UPDATE - PATCH
 ### -----------------------------------------------------
-@vehicleID = {{getVehicleID.response.body.$.value[1].plate}} 
+@vehicleID = {{getVehicleID.response.body.$.value[2].plate}} 
 
 PATCH {{base_url}}/drivers/Vehicles('{{vehicleID}}')
 Content-Type: application/json
 
 {
-    "loadCapacity": "1027kg"
+    "loadCapacity": "1237kg"
 }
 
 

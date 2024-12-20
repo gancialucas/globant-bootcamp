@@ -11,15 +11,6 @@ build-parameters:
         - npm ci
         - npx cds build --production
 modules:
-  - name: FP_logAndShipping-db-deployer
-    type: hdb
-    path: db
-    parameters:
-      deploy_mode: deployment
-      buildpack: nodejs_buildpack
-    requires:
-      - name: FP_logAndShipping-db
-
   - name: FP_logAndShipping-srv
     type: nodejs
     path: gen/srv
@@ -35,8 +26,8 @@ modules:
           srv-url: ${default-url}
     requires:
       - name: FP_logAndShipping-auth
-      - name: FP_logAndShipping-db
       - name: FP_logAndShipping-destination
+      - name: FP_logAndShipping-db
 
   - name: FP_logAndShipping
     type: approuter.nodejs
@@ -60,6 +51,14 @@ modules:
           app-protocol: ${protocol}
           app-uri: ${default-uri}
 
+  - name: FP_logAndShipping-db-deployer
+    type: hdb
+    path: gen/db
+    parameters:
+      buildpack: nodejs_buildpack
+    requires:
+      - name: FP_logAndShipping-db
+
 resources:
   - name: FP_logAndShipping-auth
     type: org.cloudfoundry.managed-service
@@ -70,14 +69,13 @@ resources:
       config:
         xsappname: FP_logAndShipping-${org}-${space}
         tenant-mode: dedicated
-
-  - name: FP_logAndShipping-db
-    type: com.sap.xs.hdi-container
-    parameters:
-      service: hana
-      service-plan: hdi-shared
   - name: FP_logAndShipping-destination
     type: org.cloudfoundry.managed-service
     parameters:
       service: destination
       service-plan: lite
+  - name: FP_logAndShipping-db
+    type: com.sap.xs.hdi-container
+    parameters:
+      service: hana
+      service-plan: hdi-shared

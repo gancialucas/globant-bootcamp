@@ -21,17 +21,17 @@ POST {{base_url}}/logistic/Packages
 Content-Type: application/json
 
 {
-    "weight": 54.1,
-    "dimensions_length": 123.12,
-    "dimensions_height": 90.87,
-    "dimensions_width": 67.45,
-    "receiver_name": "Lucas Gancia",
-    "receiver_cel": "01010202",
-    "receiver_email": "lucas@ejemplo.com",
-    "destination_city": "City Example 4",
-    "destination_street": "Street Example 4",
-    "destination_address": "Street Example 4, 0099",
-    "destination_neighborhood": "Neighborhood Example 4",
+    "weight": 234.11,
+    "dimensions_length": 1223.20,
+    "dimensions_height": 903.87,
+    "dimensions_width": 341.45,
+    "receiver_name": "Pedro Enrique Garcia",
+    "receiver_cel": "09876542",
+    "receiver_email": "pedro_enrique@ejemplo.com",
+    "destination_city": "City Example 5",
+    "destination_street": "Street Example 5",
+    "destination_address": "Street Example 5, 2134",
+    "destination_neighborhood": "Neighborhood Example 5",
     "taken": false
 }
 
@@ -66,15 +66,6 @@ Content-Type: application/json
 ###     DELETE - DELETE by ID
 ### -----------------------------------------------------
 DELETE {{base_url}}/logistic/Packages({{packageID}})
-
-
-### -----------------------------------------------------
-### --> PACKAGES
-###     CUSTOM FUNCTION
-###         - Counts the total number of packages
-### -----------------------------------------------------
-GET {{base_url}}/logistic/packagesQuantity()
-
 
 ### -----------------------------------------------------
 ### --> PACKAGES

@@ -1,3 +1,0 @@
-namespace schema.remote;
-
-

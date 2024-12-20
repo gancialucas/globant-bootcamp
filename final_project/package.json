@@ -28,17 +28,20 @@
     "hybrid": "cds watch --profile hybrid"
   },
   "cds": {
+    "fiori": {
+      "preview": true
+    },
+    "server": {
+      "index": true
+    },
     "requires": {
       "auth": "mocked",
       "API_BUSINESS_PARTNER": {
         "kind": "odata-v2",
         "model": "srv/external/API_BUSINESS_PARTNER",
         "credentials": {
-          "url": "https://my408665-api.s4hana.cloud.sap",
-          "path": "/sap/opu/odata/sap/API_BUSINESS_PARTNER/",
-          "authentication": "BasicAuthentication",
-          "username": "CAP_BOOTCAMP_S4_API_USER",
-          "password": "WS$UGgbhkG8EEvUpccCgmedHhmHRiWeZVGfvcUPE"
+          "destination": "bp_destination",
+          "path": "/sap/opu/odata/sap/API_BUSINESS_PARTNER/"
         }
       },
       "[production]": {
