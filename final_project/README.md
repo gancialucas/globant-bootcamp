@@ -12,10 +12,15 @@ This app provides an end-to-end solution to manage logistics operations. It focu
 The application is built using SAP CAP, ensuring scalability and compatibility with SAP BTP (Business Technology Platform).
 
 ### Aplication Routes
-* Link: https://c3ec7230trial-dev-fp-logandshipping-srv.cfapps.us10-001.hana.ondemand.com/
-   * `Client ID`: sb-FP_logAndShipping-c3ec7230trial-dev!t372995
-   * `Client Secret`: fbce7486-1f55-45ca-a83d-c25caf5ae05e$rVtxuXvVga6PzuMc6PjllammDg4esLdCnLjdIrt4B1Y=
-   * `url`: https://c3ec7230trial.authentication.us10.hana.ondemand.com
+* Link: https://c3ec7230trial-c3ec7230trial-dev-fp-final-project-srv.cfapps.us10-001.hana.ondemand.com/
+   * `Client ID`: sb-final_project-c3ec7230trial_c3ec7230trial-Dev_FP!t372995
+   * `Client Secret`: d8dc4f15-c5c2-4612-b8aa-efab4e711830$PC_L-wlKqrvQtq1uJEy4fxQStd3-O8rKhmc5mSxZpRU=
+   * `url`: https://c3ec7230trial.authentication.us10.hana.ondemand.com/oauth/token
+
+Credenciales:
+clientid: sb-final_project-c3ec7230trial_c3ec7230trial-Dev_FP!t372995
+clientsecret: d8dc4f15-c5c2-4612-b8aa-efab4e711830$PC_L-wlKqrvQtq1uJEy4fxQStd3-O8rKhmc5mSxZpRU=
+url: https://c3ec7230trial.authentication.us10.hana.ondemand.com
 
 ## Features
 
