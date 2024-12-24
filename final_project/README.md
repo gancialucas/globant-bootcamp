@@ -13,6 +13,7 @@ The application is built using SAP CAP, ensuring scalability and compatibility w
 
 ### Aplication Routes
 * Link: https://c3ec7230trial-c3ec7230trial-dev-fp-final-project-srv.cfapps.us10-001.hana.ondemand.com/
+* Client Credential:
    * `Client ID`: sb-final_project-c3ec7230trial_c3ec7230trial-Dev_FP!t372995
    * `Client Secret`: d8dc4f15-c5c2-4612-b8aa-efab4e711830$PC_L-wlKqrvQtq1uJEy4fxQStd3-O8rKhmc5mSxZpRU=
    * `url`: https://c3ec7230trial.authentication.us10.hana.ondemand.com/oauth/token
