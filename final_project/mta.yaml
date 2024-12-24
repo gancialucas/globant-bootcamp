@@ -1,5 +1,5 @@
 _schema-version: 3.3.0
-ID: FP_logAndShipping
+ID: final_project
 version: 1.0.0
 description: "A simple CAP project."
 parameters:
@@ -11,7 +11,7 @@ build-parameters:
         - npm ci
         - npx cds build --production
 modules:
-  - name: FP_logAndShipping-srv
+  - name: final_project-srv
     type: nodejs
     path: gen/srv
     parameters:
@@ -25,57 +25,41 @@ modules:
         properties:
           srv-url: ${default-url}
     requires:
-      - name: FP_logAndShipping-auth
-      - name: FP_logAndShipping-destination
-      - name: FP_logAndShipping-db
+      - name: final_project-destination
+      - name: final_project-hdi
+      - name: final_project-auth
+      - name: final_project-connectivity
 
-  - name: FP_logAndShipping
-    type: approuter.nodejs
-    path: app/router
-    parameters:
-      keep-existing-routes: true
-      disk-quota: 256M
-      memory: 256M
-    requires:
-      - name: srv-api
-        group: destinations
-        properties:
-          name: srv-api # must be used in xs-app.json as well
-          url: ~{srv-url}
-          forwardAuthToken: true
-      - name: FP_logAndShipping-auth
-      - name: FP_logAndShipping-destination
-    provides:
-      - name: app-api
-        properties:
-          app-protocol: ${protocol}
-          app-uri: ${default-uri}
-
-  - name: FP_logAndShipping-db-deployer
+  - name: final_project-db-deployer
     type: hdb
     path: gen/db
     parameters:
       buildpack: nodejs_buildpack
     requires:
-      - name: FP_logAndShipping-db
+      - name: final_project-hdi
 
 resources:
-  - name: FP_logAndShipping-auth
+  - name: final_project-destination
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: destination
+      service-plan: lite
+  - name: final_project-hdi
+    type: com.sap.xs.hdi-container
+    parameters:
+      service: hana
+      service-plan: hdi-shared
+  - name: final_project-auth
     type: org.cloudfoundry.managed-service
     parameters:
       service: xsuaa
       service-plan: application
       path: ./xs-security.json
       config:
-        xsappname: FP_logAndShipping-${org}-${space}
+        xsappname: final_project-${org}-${space}
         tenant-mode: dedicated
-  - name: FP_logAndShipping-destination
+  - name: final_project-connectivity
     type: org.cloudfoundry.managed-service
     parameters:
-      service: destination
+      service: connectivity
       service-plan: lite
-  - name: FP_logAndShipping-db
-    type: com.sap.xs.hdi-container
-    parameters:
-      service: hana
-      service-plan: hdi-shared
